@@ -1,0 +1,89 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #121212;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+    position: relative; /* Ensure positioning for lines */
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-size: 2.5em;
+}
+
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(3, 120px); /* Size of cells */
+    grid-template-rows: repeat(3, 120px);    /* Size of cells */
+    gap: 5px;
+    margin-bottom: 20px;
+    justify-content: center;
+    position: relative; /* Ensure lines are positioned correctly */
+}
+
+.cell {
+    width: 120px;
+    height: 120px;
+    background-color: #333;
+    border: 2px solid #555;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 4em;         /* Size of "X" and "O" */
+    color: #ffffff;         /* Color of "X" and "O" */
+    cursor: pointer;
+    position: relative; /* Ensure the cell is positioned relative to its parent */
+    z-index: 1;          /* Ensure the cell content is on top */
+}
+
+.cell.X::before {
+    content: 'X'; /* Content for X marker */
+    color: #ffffff; /* White color for X */
+}
+
+.cell.O::before {
+    content: 'O'; /* Content for O marker */
+    color: #ffffff; /* White color for O */
+}
+
+.game-status {
+    text-align: center;
+}
+
+#status-text {
+    margin-bottom: 1.5em;
+}
+
+#reset-button {
+    padding: 10px 20px;
+    font-size: 1em;
+    background-color: #555;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+}
+
+#reset-button:hover {
+    background-color: #777;
+}
+
+.winning-line {
+    position: absolute;
+    background-color: #ffffff; /* White color for win line */
+    z-index: 2; /* Ensure the line is above the cells */
+    transform-origin: left; /* Ensure the line grows from left to right */
+}
